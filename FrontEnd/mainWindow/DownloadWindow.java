@@ -32,7 +32,7 @@ private int curFileNr = 1;
 		window.setLocationRelativeTo(null);
 		window.setLayout(null);
 		window.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-		window.setIconImage(asLo.Icon.getImage());
+		window.setIconImage(asLo.IconOff.getImage());
 		window.setTitle("Downloading");
 		
 		JPanel content = new JPanel();

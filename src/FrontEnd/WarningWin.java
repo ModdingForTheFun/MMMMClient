@@ -33,7 +33,7 @@ private JButton yes;
 		popUp.setSize(225,150);
 		popUp.setLocationRelativeTo(null);
 		popUp.setTitle("");
-		popUp.setIconImage(asLo.Icon.getImage());
+		popUp.setIconImage(asLo.IconOff.getImage());
 		popUp.setLayout(null);
 		popUp.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		popUp.addWindowListener(new WindowAdapter() {

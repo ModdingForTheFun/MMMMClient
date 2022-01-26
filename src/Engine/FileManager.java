@@ -79,6 +79,17 @@ private AssetLoader asLo;
 				
 				configFile.createNewFile();
 				
+				BufferedWriter BW = new BufferedWriter(new FileWriter(configFile));
+				
+				BW.write("-");
+				BW.newLine();
+				BW.write(" ");
+				BW.newLine();
+				BW.write("false");
+				BW.flush();
+				
+				BW.close();
+				
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -372,7 +383,12 @@ private AssetLoader asLo;
 		popUp.setSize(250,150);
 		popUp.setLocationRelativeTo(null);
 		popUp.setTitle("Warning !");
-		popUp.setIconImage(asLo.Icon.getImage());
+		if(con.com.isConnected()) {
+			popUp.setIconImage(asLo.IconOn.getImage());
+		}else {
+			popUp.setIconImage(asLo.IconOff.getImage());
+		}
+		
 		popUp.setLayout(null);
 		
 		JPanel content = new JPanel();
@@ -732,7 +748,11 @@ private AssetLoader asLo;
 		popUp.setSize(250,150);
 		popUp.setLocationRelativeTo(null);
 		popUp.setTitle("Warning !");
-		popUp.setIconImage(asLo.Icon.getImage());
+		if(con.com.isConnected()) {
+			popUp.setIconImage(asLo.IconOn.getImage());
+		}else {
+			popUp.setIconImage(asLo.IconOff.getImage());
+		}
 		popUp.setLayout(null);
 		
 		JPanel content = new JPanel();
@@ -799,7 +819,11 @@ private AssetLoader asLo;
 		popUp.setSize(250,150);
 		popUp.setLocationRelativeTo(null);
 		popUp.setTitle("Warning !");
-		popUp.setIconImage(asLo.Icon.getImage());
+		if(con.com.isConnected()) {
+			popUp.setIconImage(asLo.IconOn.getImage());
+		}else {
+			popUp.setIconImage(asLo.IconOff.getImage());
+		}
 		popUp.setLayout(null);
 		
 		JPanel content = new JPanel();

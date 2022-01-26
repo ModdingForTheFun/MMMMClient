@@ -8,9 +8,13 @@ import mainWindow.MainWindow;
 
 public class AssetLoader {
 
-public ImageIcon Icon;
-	
+public ImageIcon IconOff;
+
+public ImageIcon IconOn;
+
 public ImageIcon Background;
+
+
 
 	public AssetLoader() {
 		
@@ -20,8 +24,12 @@ public ImageIcon Background;
 	public void LoadAssets() {
 		
 		//Window / Taskbar icon
-		URL Iconurl = MainWindow.class.getResource("/Icon.png");
-		Icon = new ImageIcon(Iconurl);
+		
+		URL IconOnUrl = MainWindow.class.getResource("/ICON_On.png");
+		IconOn = new ImageIcon(IconOnUrl);
+		
+		URL IconOffUrl = MainWindow.class.getResource("/ICON_Off.png");
+		IconOff = new ImageIcon(IconOffUrl);
 		
 		//Background image
 		URL BGurl = MainWindow.class.getResource("/Background.png");

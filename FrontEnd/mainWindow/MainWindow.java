@@ -115,7 +115,7 @@ private String version;
 		
 		window.setJMenuBar(MenuBar());
 		
-		window.setIconImage(AsLo.Icon.getImage());
+		window.setIconImage(AsLo.IconOff.getImage());
 		
 		window.setContentPane(Content());
 		
@@ -124,10 +124,12 @@ private String version;
 
 	public void setOnline() {
 		window.setTitle(title + "   (Online)");
+		window.setIconImage(AsLo.IconOn.getImage());
 	}
 	
 	public void setOffline() {
 		window.setTitle(title + "   (Offline)");
+		window.setIconImage(AsLo.IconOff.getImage());
 	}
 	
 	public void setConnecting() {

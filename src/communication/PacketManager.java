@@ -178,6 +178,8 @@ public String curID = "0";
 		}
 		
 		curID = HEXid;
+		System.out.println("PacketType : " + packetType);
+		System.out.println("HEXID : " + curID);
 	}
 	
 	//private function to add Info to packet
@@ -274,7 +276,7 @@ public String curID = "0";
 				
 				if(answer) {
 					com.setConnected();
-					com.addPacket("RequestUpdate");
+					com.write("RequestUpdate");
 						
 					com.readFile();
 					com.disconnect();

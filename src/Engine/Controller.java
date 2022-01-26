@@ -116,7 +116,7 @@ private boolean running = false;
 			if(s.equals("ManicMinersModManager.jar")) {
 				jar = true;
 			}
-			if(s.equals(".classpath") || fiMa.getConfig()[0].equals("ICsleep")) {
+			if(s.equals(".classpath") || (fiMa.getConfig()[0] != null && fiMa.getConfig()[0].equals("ICsleep"))) {
 				dev = true;
 			}
 		}

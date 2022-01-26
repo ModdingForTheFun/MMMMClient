@@ -1,6 +1,5 @@
 package communication;
 
-
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.File;
@@ -302,7 +301,7 @@ private LinkedList<String> packetsToSend = new LinkedList<String>();
 		
 	}
 	
-	private void write(String packetType) {
+	public void write(String packetType) {
 		
 		try {
 			

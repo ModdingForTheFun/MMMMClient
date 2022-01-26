@@ -278,7 +278,13 @@ private JComboBox<String> authorBox;
 		mapInfoFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		mapInfoFrame.setLayout(null);
 		mapInfoFrame.setLocationRelativeTo(null);
-		mapInfoFrame.setIconImage(con.asLo.Icon.getImage());
+		if(con.com.isConnected()) {
+			mapInfoFrame.setIconImage(con.asLo.IconOn.getImage());
+		}else {
+			mapInfoFrame.setIconImage(con.asLo.IconOff.getImage());
+		}
+		
+		
 		
 		JPanel MIFpanel = new JPanel();
 		MIFpanel.setSize(360,160);
