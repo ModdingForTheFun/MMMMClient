@@ -51,7 +51,7 @@ private boolean running = false;
 		
 		asLo.LoadAssets();
 		
-		fiMa = new FileManager(asLo);
+		fiMa = new FileManager(this,asLo);
 		
 		ExeJarCheck();
 		

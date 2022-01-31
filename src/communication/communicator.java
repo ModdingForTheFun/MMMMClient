@@ -430,6 +430,10 @@ private LinkedList<String> packetsToSend = new LinkedList<String>();
 				
 				String homeDir = System.getProperty("user.home");
 				
+				if(con.fiMa.DocuLocation.length() > 4) {
+					homeDir = con.fiMa.DocuLocation;
+				}
+				
 				System.out.println("File ID : " + ID);
 				
 				switch(ID) {

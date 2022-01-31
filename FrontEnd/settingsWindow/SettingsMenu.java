@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -42,6 +43,57 @@ private String SautoConnect;
 		SettingsWindow.setBackground(Color.LIGHT_GRAY);
 		SettingsWindow.setLocation(25,25);
 		SettingsWindow.setLayout(null);
+		
+		
+		// Coduments folder IF someone has a wierd documents folder
+		
+				JTextField DocuFolderText = new JTextField();
+				DocuFolderText.setSize(425,25);
+				DocuFolderText.setLocation(125,50);
+				DocuFolderText.setEditable(false);
+				DocuFolderText.setBackground(null);
+				DocuFolderText.setBorder(null);
+				DocuFolderText.setText("Documents Folder : ( Select the USER folder )");
+				
+				JTextField DocuLocation = new JTextField();
+				DocuLocation.setSize(425,25);
+				DocuLocation.setLocation(125,75);
+				DocuLocation.setText(settings[3]);
+				
+				
+				JButton DocuLocSelection = new JButton();
+				DocuLocSelection.setSize(25,25);
+				DocuLocSelection.setLocation(100,75);
+				DocuLocSelection.setIcon(UIManager.getIcon("FileView.directoryIcon"));
+				DocuLocSelection.addActionListener(new ActionListener() {
+
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						JFileChooser location = new JFileChooser(DocuLocation.getText());
+						
+						location.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+						
+						int returnVal = location.showOpenDialog(null);
+						
+						if(returnVal == JFileChooser.APPROVE_OPTION)
+				        {
+							String loc = location.getSelectedFile().getAbsolutePath();
+							
+							String[] locList = new File(loc).list();
+							
+							for(String folder : locList) {
+								
+								if(folder.contains("Documents")) {
+									DocuLocation.setText(location.getSelectedFile().getAbsolutePath());
+								}
+								
+							}
+							
+				        }
+					}
+					
+				});
+		
 		
 		// user name
 		
@@ -147,7 +199,7 @@ private String SautoConnect;
 					}
 					
 					con.mainWin.warWin.DisplayWarning(new String[]{"Warning !","Dont change your username later.","You will lose acces to update your maps.","Ok"});
-					con.fiMa.writeToConfig(new String[] {UserName.getText(),GameLocation.getText(),SautoConnect});
+					con.fiMa.writeToConfig(new String[] {UserName.getText(),GameLocation.getText(),SautoConnect,DocuLocation.getText()});
 				}else {
 					con.mainWin.warWin.DisplayWarning(new String[]{"Faulty Username","Your Username is to Short.","Please use a Longer Username","Ok"});
 				}
@@ -156,6 +208,10 @@ private String SautoConnect;
 			}
 			
 		});
+		
+		SettingsWindow.add(DocuFolderText);
+		SettingsWindow.add(DocuLocation);
+		SettingsWindow.add(DocuLocSelection);
 		
 		SettingsWindow.add(UserNameText);
 		SettingsWindow.add(UserName);

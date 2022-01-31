@@ -54,8 +54,8 @@ private File LevelFile = new File("");
 		LevelPath.setLocation(50,50);
 		
 		JTextField AssetPathText = new JTextField();
-		AssetPathText.setText("Assets : (Music/Sound .ogg)");
-		AssetPathText.setSize(250,25);
+		AssetPathText.setText("Assets :(Documents/ManicMiners/Levels/ASSETS/Sounds/MapName) (Music/Sound .ogg) ");
+		AssetPathText.setSize(550,25);
 		AssetPathText.setLocation(50,75);
 		AssetPathText.setEditable(false);
 		AssetPathText.setBackground(null);
@@ -142,7 +142,7 @@ private File LevelFile = new File("");
 		LengthBox.addItem("Infinite");
 		
 		JTextField AditionalInfoText = new JTextField();
-		AditionalInfoText.setText("Extra Info : (Unfinisht)");
+		AditionalInfoText.setText("Extra Info :");
 		AditionalInfoText.setSize(200,25);
 		AditionalInfoText.setLocation(200,125);
 		AditionalInfoText.setEditable(false);
@@ -152,7 +152,8 @@ private File LevelFile = new File("");
 		JTextArea Aditionalinfo = new JTextArea();
 		Aditionalinfo.setSize(350,150);
 		Aditionalinfo.setLocation(200,150);
-		
+		Aditionalinfo.setLineWrap(true);
+		Aditionalinfo.setWrapStyleWord(true);
 		
 		
 		

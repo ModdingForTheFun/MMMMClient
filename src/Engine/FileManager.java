@@ -33,7 +33,12 @@ private Controller con;
 
 private AssetLoader asLo;
 
-	public FileManager(AssetLoader AsLo) {
+
+public String DocuLocation;	
+
+
+	public FileManager(Controller Con,AssetLoader AsLo) {
+		con = Con;
 		asLo = AsLo;
 	}
 	
@@ -61,14 +66,14 @@ private AssetLoader asLo;
 	
 	public String[] getConfig(){
 		
-		String[] configData = new String[3];
+		String[] configData = new String[4];
 		
 		String homeDir = System.getProperty("user.home");
 		
 		File configFolder = new File(homeDir + "\\Documents\\ManicMiners\\ModManager");
 		
 		if(!configFolder.exists()) {
-			configFolder.mkdir();
+			configFolder.mkdirs();
 		}
 		
 		File configFile = new File(homeDir + "\\Documents\\ManicMiners\\ModManager\\MMMM.cfg");
@@ -86,6 +91,8 @@ private AssetLoader asLo;
 				BW.write(" ");
 				BW.newLine();
 				BW.write("false");
+				BW.flush();
+				BW.write("");
 				BW.flush();
 				
 				BW.close();
@@ -108,6 +115,16 @@ private AssetLoader asLo;
 			configData[0] = UserName;
 			configData[1] = BR.readLine(); //game location
 			configData[2] = BR.readLine(); // auto connect
+			configData[3] = BR.readLine(); //Documents Custom Folder
+			
+			if(configData[3] == null) {
+				DocuLocation = homeDir;
+			}else
+			if(configData[3].length() > 4) {
+				DocuLocation = configData[3];
+			}else {
+				DocuLocation = homeDir;
+			}
 			
 			BR.close();
 			FR.close();
@@ -259,11 +276,23 @@ private AssetLoader asLo;
 		
 		String homeDir = System.getProperty("user.home");
 		
+		if(DocuLocation.length() > 4) {
+			homeDir = DocuLocation;
+		}
+		
 		//System.out.println(homeDir);
 		
 		File levelFolder = new File(homeDir + "\\Documents\\ManicMiners\\Levels");
 		
-		List<String> LevelListList = Arrays.asList(levelFolder.list());
+		System.out.println("Level Folder : " + levelFolder.getAbsolutePath());
+		
+		String[] levels = levelFolder.list();
+		
+		if(levels == null || levels.length < 1) { 
+			return new String[][] {{"NoLevel!",".",".","."}};
+		}
+		
+		List<String> LevelListList = Arrays.asList(levelFolder.list()); //TODO what if there are no maps ?
 		
 		LinkedList<String> LevelList = new LinkedList<String>();
 		
@@ -424,6 +453,10 @@ private AssetLoader asLo;
 				popUp.dispose();
 				
 				String homeDir = System.getProperty("user.home");
+				
+				if(DocuLocation.length() > 4) {
+					homeDir = DocuLocation;
+				}
 				
 				File LevelFile = new File(homeDir + "\\Documents\\ManicMiners\\Levels\\" + mapName + ".dat");
 				
@@ -593,6 +626,10 @@ private AssetLoader asLo;
 		
 		String homeDir = System.getProperty("user.home");
 		
+		if(DocuLocation.length() > 4) {
+			homeDir = DocuLocation;
+		}
+		
 		File textureMainFolder = new File(homeDir + "\\Documents\\ManicMiners\\tempFiles");
 		
 		if(!textureMainFolder.exists()) {
@@ -671,6 +708,10 @@ private AssetLoader asLo;
 		loadedTextures = new HashMap<String, ImageIcon>();
 		
 		String homeDir = System.getProperty("user.home");
+		
+		if(DocuLocation.length() > 4) {
+			homeDir = DocuLocation;
+		}
 		
 		File textureMainFolder = new File(homeDir + "\\Documents\\ManicMiners\\Textures");
 		
@@ -887,6 +928,10 @@ private AssetLoader asLo;
 		String filePath = file.getAbsolutePath();
 		
 		String homeDir = System.getProperty("user.home");
+		
+		if(DocuLocation.length() > 4) {
+			homeDir = DocuLocation;
+		}
 		
 		String subFolder = "Arm";
 		

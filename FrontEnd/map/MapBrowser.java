@@ -295,6 +295,8 @@ private JComboBox<String> authorBox;
 		infoText.setSize(350, 150);
 		infoText.setLocation(5,5);
 		infoText.setEditable(false);
+		infoText.setLineWrap(true);
+		infoText.setWrapStyleWord(true);
 		
 		MIFpanel.add(infoText);
 		
