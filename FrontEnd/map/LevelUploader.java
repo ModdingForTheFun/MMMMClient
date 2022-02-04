@@ -162,7 +162,7 @@ private File LevelFile = new File("");
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				JFileChooser pathCh = new JFileChooser(System.getProperty("user.home") + "\\Documents\\ManicMiners\\Levels" );
+				JFileChooser pathCh = new JFileChooser(con.fiMa.MMFolderLoc + "\\Levels" );
 				pathCh.setFileFilter(new FileNameExtensionFilter("Manic Miners Map File", "dat"));
 				
 				int returnVal = pathCh.showOpenDialog(null);

@@ -430,8 +430,8 @@ private LinkedList<String> packetsToSend = new LinkedList<String>();
 				
 				String homeDir = System.getProperty("user.home");
 				
-				if(con.fiMa.DocuLocation.length() > 4) {
-					homeDir = con.fiMa.DocuLocation;
+				if(con.fiMa.MMFolderLoc.length() > 4) {
+					homeDir = con.fiMa.MMFolderLoc;
 				}
 				
 				System.out.println("File ID : " + ID);
@@ -446,7 +446,7 @@ private LinkedList<String> packetsToSend = new LinkedList<String>();
 				
 				case("0x33"):
 					isTextureFetch = false;
-					FILE = new File(homeDir + "\\Documents\\ManicMiners\\Levels\\" + FileName);
+					FILE = new File(homeDir + "\\Levels\\" + FileName);
 				break;
 				
 				case("0x34"):
@@ -464,75 +464,75 @@ private LinkedList<String> packetsToSend = new LinkedList<String>();
 					
 					String LevelName = new String(LevelFolderName);
 					
-					FILE = new File(homeDir + "\\Documents\\ManicMiners\\Levels\\ASSETS\\Sounds\\" + LevelName);
+					FILE = new File(homeDir + "\\Levels\\ASSETS\\Sounds\\" + LevelName);
 					
 					if(!FILE.exists()) {
 						FILE.mkdir();
 					}
 					
-					FILE = new File(homeDir + "\\Documents\\ManicMiners\\Levels\\ASSETS\\Sounds\\" + LevelName + "\\" + FileName);
+					FILE = new File(homeDir + "\\Levels\\ASSETS\\Sounds\\" + LevelName + "\\" + FileName);
 				break;
 				
 				case("0x3C"):
 					isTextureFetch = true;
-					FILE = new File(homeDir + "\\Documents\\ManicMiners\\tempFiles\\Arm");
+					FILE = new File(homeDir + "\\tempFiles\\Arm");
 					
 					if(!FILE.exists()) {
 						FILE.mkdir();
 					}
 					
-					FILE = new File(homeDir + "\\Documents\\ManicMiners\\tempFiles\\Arm\\" + FileName);
+					FILE = new File(homeDir + "\\tempFiles\\Arm\\" + FileName);
 					FILE.deleteOnExit();
 				break;
 				
 				case("0x3D"):
 					isTextureFetch = true;
-					FILE = new File(homeDir + "\\Documents\\ManicMiners\\tempFiles\\Belt");
+					FILE = new File(homeDir + "\\tempFiles\\Belt");
 					
 					if(!FILE.exists()) {
 						FILE.mkdir();
 					}
 					
-					FILE = new File(homeDir + "\\Documents\\ManicMiners\\tempFiles\\Belt\\" + FileName);
+					FILE = new File(homeDir + "\\tempFiles\\Belt\\" + FileName);
 					FILE.deleteOnExit();
 					
 				break;
 				
 				case("0x3E"):
 					isTextureFetch = true;
-					FILE = new File(homeDir + "\\Documents\\ManicMiners\\tempFiles\\Face");
+					FILE = new File(homeDir + "\\tempFiles\\Face");
 					
 					if(!FILE.exists()) {
 						FILE.mkdir();
 					}
 					
-					FILE = new File(homeDir + "\\Documents\\ManicMiners\\tempFiles\\Face\\" + FileName);
+					FILE = new File(homeDir + "\\tempFiles\\Face\\" + FileName);
 					FILE.deleteOnExit();
 					
 				break;
 				
 				case("0x3F"):
 					isTextureFetch = true;
-					FILE = new File(homeDir + "\\Documents\\ManicMiners\\tempFiles\\LegLeft");
+					FILE = new File(homeDir + "\\tempFiles\\LegLeft");
 					
 					if(!FILE.exists()) {
 						FILE.mkdir();
 					}
 					
-					FILE = new File(homeDir + "\\Documents\\ManicMiners\\tempFiles\\LegLeft\\" + FileName);
+					FILE = new File(homeDir + "\\tempFiles\\LegLeft\\" + FileName);
 					FILE.deleteOnExit();
 					
 				break;
 				
 				case("0x40"):
 					isTextureFetch = true;
-					FILE = new File(homeDir + "\\Documents\\ManicMiners\\tempFiles\\LegRight");
+					FILE = new File(homeDir + "\\tempFiles\\LegRight");
 					
 					if(!FILE.exists()) {
 						FILE.mkdir();
 					}
 					
-					FILE = new File(homeDir + "\\Documents\\ManicMiners\\tempFiles\\LegRight\\" + FileName);
+					FILE = new File(homeDir + "\\tempFiles\\LegRight\\" + FileName);
 					FILE.deleteOnExit();
 					
 				break;
@@ -540,13 +540,13 @@ private LinkedList<String> packetsToSend = new LinkedList<String>();
 				case("0x41"):
 					isTextureFetch = true;
 					LastTexture=true;
-					FILE = new File(homeDir + "\\Documents\\ManicMiners\\tempFiles\\Torso");
+					FILE = new File(homeDir + "\\tempFiles\\Torso");
 					
 					if(!FILE.exists()) {
 						FILE.mkdir();
 					}
 					
-					FILE = new File(homeDir + "\\Documents\\ManicMiners\\tempFiles\\Torso\\" + FileName);
+					FILE = new File(homeDir + "\\tempFiles\\Torso\\" + FileName);
 					FILE.deleteOnExit();
 					
 				break;

@@ -53,7 +53,7 @@ private String SautoConnect;
 				DocuFolderText.setEditable(false);
 				DocuFolderText.setBackground(null);
 				DocuFolderText.setBorder(null);
-				DocuFolderText.setText("Documents Folder : ( Select the USER folder )");
+				DocuFolderText.setText("ManicMiners Folder : (in Documents , not the game)");
 				
 				JTextField DocuLocation = new JTextField();
 				DocuLocation.setSize(425,25);
@@ -79,14 +79,8 @@ private String SautoConnect;
 				        {
 							String loc = location.getSelectedFile().getAbsolutePath();
 							
-							String[] locList = new File(loc).list();
-							
-							for(String folder : locList) {
-								
-								if(folder.contains("Documents")) {
-									DocuLocation.setText(location.getSelectedFile().getAbsolutePath());
-								}
-								
+							if(loc.contains("ManicMiners")) {
+								DocuLocation.setText(location.getSelectedFile().getAbsolutePath());
 							}
 							
 				        }
