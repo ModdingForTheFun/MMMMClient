@@ -194,25 +194,11 @@ private String version;
 					
 					String path[] = FiMa.getConfig();
 					
-					File MMFolder = new File(path[1]);
-					
-					String[] MMFolderList = MMFolder.list();
-					
-					boolean contains = false;
-					
-					for(String s : MMFolderList) {
-						if(s.equals("ManicMiners.exe")) {
-							contains = true;
-						}
-					}
-					
-					if(contains) {
-						new ProcessBuilder(path[1] + "/ManicMiners.exe").start();
+					if(path[1].contains("ManicMiners.exe")) {
+						new ProcessBuilder(path[1]).start();
 					}else {
 						con.mainWin.warWin.DisplayWarning(new String[] {"Faulty MM Path","Your MM exe Path is faulty." , "Please eddit it in your settings.", "OK"});
 					}
-					
-					
 					
 				} catch (IOException e1) {
 					e1.printStackTrace();

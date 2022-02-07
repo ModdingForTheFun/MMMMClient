@@ -108,12 +108,12 @@ private String SautoConnect;
 		// Game location
 		
 		JTextField GameLocationText = new JTextField();
-		GameLocationText.setSize(125,25);
+		GameLocationText.setSize(350,25);
 		GameLocationText.setLocation(125,200);
 		GameLocationText.setEditable(false);
 		GameLocationText.setBackground(null);
 		GameLocationText.setBorder(null);
-		GameLocationText.setText("GameLocation : ");
+		GameLocationText.setText("GameLocation : (ManicMiners.exe)");
 		
 		JTextField GameLocation = new JTextField();
 		GameLocation.setSize(425,25);
@@ -131,13 +131,18 @@ private String SautoConnect;
 			public void actionPerformed(ActionEvent e) {
 				JFileChooser location = new JFileChooser(GameLocation.getText());
 				
-				location.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+				location.setFileSelectionMode(JFileChooser.FILES_ONLY);
 				
 				int returnVal = location.showOpenDialog(null);
 				
 				if(returnVal == JFileChooser.APPROVE_OPTION)
 		        {
-					GameLocation.setText(location.getSelectedFile().getAbsolutePath());
+					
+					String loc = location.getSelectedFile().getAbsolutePath();
+					
+					if(loc.contains("ManicMiners.exe")) {
+						GameLocation.setText(location.getSelectedFile().getAbsolutePath());
+					}
 					
 		        }
 			}

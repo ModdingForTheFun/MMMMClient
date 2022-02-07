@@ -25,6 +25,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.filechooser.FileSystemView;
 
 import FrontEnd.AssetLoader;
 
@@ -70,8 +71,9 @@ public String MMFolderLoc;
 	
 	//config file
 	
+	private boolean firstBoot = true;
+	
 	public String[] getConfig(){
-		
 		
 		File jarDir = new File(ClassLoader.getSystemClassLoader().getResource(".").getPath());
 		
@@ -80,29 +82,68 @@ public String MMFolderLoc;
 		
 		String[] configData = new String[4];
 		
-		//move key if needed
 		
-		if(new File(System.getProperty("user.home") + "\\Documents\\ManicMiners" + "\\ModManager\\MMMM.key").exists()) {
-			try {
-				Files.move(Paths.get(System.getProperty("user.home") + "\\Documents\\ManicMiners" + "\\ModManager\\MMMM.key"), 
-						Paths.get(MMMMdir + "\\ModManager\\MMMM.key"));
-			} catch (IOException e) {
-				System.out.println("Couldnt move key file !");
-				e.printStackTrace();
+		
+		if(firstBoot) {
+			
+			System.out.println("Find Documents folder test : " + FileSystemView.getFileSystemView().getDefaultDirectory().getPath() );
+			
+			//move key if needed
+			
+			if(new File(System.getProperty("user.home") + "\\Documents\\ManicMiners" + "\\ModManager\\MMMM.key").exists()) {
+				try {
+					Files.move(Paths.get(System.getProperty("user.home") + "\\Documents\\ManicMiners" + "\\ModManager\\MMMM.key"), 
+							Paths.get(MMMMdir + "\\ModManager\\MMMM.key"));
+					delete(new File(System.getProperty("user.home") + "\\Documents\\ManicMiners" + "\\ModManager\\MMMM.key"));
+				} catch (IOException e) {
+					System.out.println("Couldnt move key file !");
+					e.printStackTrace();
+				}
 			}
+			
+			//move config
+			
+			if(new File(System.getProperty("user.home") + "\\Documents\\ManicMiners" + "\\ModManager\\MMMM.cfg").exists()) {
+				try {
+					Files.move(Paths.get(System.getProperty("user.home") + "\\Documents\\ManicMiners" + "\\ModManager\\MMMM.cfg"), 
+							Paths.get(MMMMdir + "\\ModManager\\MMMM.cfg"));
+					delete(new File(System.getProperty("user.home") + "\\Documents\\ManicMiners" + "\\ModManager\\MMMM.cfg"));
+				} catch (IOException e) {
+					System.out.println("Couldnt move cfg file !");
+					e.printStackTrace();
+				}
+			}
+		
+			//move key if needed new method !
+			
+			if(new File(FileSystemView.getFileSystemView().getDefaultDirectory().getPath() + "\\ManicMiners" + "\\ModManager\\MMMM.key").exists()) {
+				try {
+					Files.move(Paths.get(FileSystemView.getFileSystemView().getDefaultDirectory().getPath() + "\\ManicMiners" + "\\ModManager\\MMMM.key"), 
+							Paths.get(MMMMdir + "\\ModManager\\MMMM.key"));
+					delete(new File(FileSystemView.getFileSystemView().getDefaultDirectory().getPath() + "\\ManicMiners" + "\\ModManager\\MMMM.key"));
+				} catch (IOException e) {
+					System.out.println("Couldnt move key file !");
+					e.printStackTrace();
+				}
+			}
+			
+			//move config
+			
+			if(new File(FileSystemView.getFileSystemView().getDefaultDirectory().getPath() + "\\ManicMiners" + "\\ModManager\\MMMM.cfg").exists()) {
+				try {
+					Files.move(Paths.get(FileSystemView.getFileSystemView().getDefaultDirectory().getPath() + "\\ManicMiners" + "\\ModManager\\MMMM.cfg"), 
+							Paths.get(MMMMdir + "\\ModManager\\MMMM.cfg"));
+					delete(new File(FileSystemView.getFileSystemView().getDefaultDirectory().getPath() + "\\ManicMiners" + "\\ModManager\\MMMM.cfg"));
+				} catch (IOException e) {
+					System.out.println("Couldnt move cfg file !");
+					e.printStackTrace();
+				}
+			}
+			
+			firstBoot = false;
 		}
 		
-		//move config
 		
-		if(new File(System.getProperty("user.home") + "\\Documents\\ManicMiners" + "\\ModManager\\MMMM.cfg").exists()) {
-			try {
-				Files.move(Paths.get(System.getProperty("user.home") + "\\Documents\\ManicMiners" + "\\ModManager\\MMMM.cfg"), 
-						Paths.get(MMMMdir + "\\ModManager\\MMMM.cfg"));
-			} catch (IOException e) {
-				System.out.println("Couldnt move cfg file !");
-				e.printStackTrace();
-			}
-		}
 		
 		File configFolder = new File(MMMMdir + "\\ModManager");
 		
@@ -126,7 +167,7 @@ public String MMFolderLoc;
 				BW.newLine();
 				BW.write("false");
 				BW.flush();
-				BW.write("" + System.getProperty("user.home") + "\\Documents\\ManicMiners");
+				BW.write("" + FileSystemView.getFileSystemView().getDefaultDirectory().getPath() + "\\ManicMiners");
 				BW.flush();
 				
 				BW.close();
@@ -152,7 +193,8 @@ public String MMFolderLoc;
 			configData[3] = BR.readLine(); // MMfolder
 			
 			if(configData[3] == null || (!configData[3].contains("ManicMiners"))) {
-				MMFolderLoc = System.getProperty("user.home") + "\\Documents\\ManicMiners";
+				MMFolderLoc = FileSystemView.getFileSystemView().getDefaultDirectory().getPath() + "\\ManicMiners";
+				configData[3] = FileSystemView.getFileSystemView().getDefaultDirectory().getPath() + "\\ManicMiners";
 			}else
 			{
 				MMFolderLoc = configData[3];
