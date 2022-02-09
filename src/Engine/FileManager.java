@@ -88,6 +88,10 @@ public String MMFolderLoc;
 			
 			System.out.println("Find Documents folder test : " + FileSystemView.getFileSystemView().getDefaultDirectory().getPath() );
 			
+			if(!new File(MMMMdir + "\\ModManager").exists()) {
+				new File(MMMMdir + "\\ModManager").mkdirs();
+			}
+			
 			//move key if needed
 			
 			if(new File(System.getProperty("user.home") + "\\Documents\\ManicMiners" + "\\ModManager\\MMMM.key").exists()) {
@@ -528,6 +532,10 @@ public String MMFolderLoc;
 					System.out.println("Gelöscht");
 				}else {
 					System.out.println(MMFolderLoc + "\\Levels\\" + mapName + ".dat" + "_wurde nicht gefunden");
+				}
+				
+				if(new File(MMFolderLoc + "\\Levels\\ASSETS\\Sounds\\" + mapName).exists()) {
+					delete(new File(MMFolderLoc + "\\Levels\\ASSETS\\Sounds\\" + mapName));
 				}
 				
 				delete(LevelFile);

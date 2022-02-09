@@ -437,7 +437,26 @@ private String version;
 			}
 			
 		});
+		
 		settingsMenu.add(ABOUT);
+		
+		JMenuItem ChangeLog = new JMenuItem("Change Log");
+		ChangeLog.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+				ChangeLog CL = new ChangeLog(con);
+				
+				currentWindow.removeAll();
+				currentWindow.add(CL.getPanel());
+				currentWindow.repaint();
+				currentWindow.revalidate();
+				
+			}
+			
+		});
+		settingsMenu.add(ChangeLog);
 		
 		return settingsMenu;
 	}

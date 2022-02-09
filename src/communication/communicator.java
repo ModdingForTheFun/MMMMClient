@@ -467,7 +467,7 @@ private LinkedList<String> packetsToSend = new LinkedList<String>();
 					FILE = new File(homeDir + "\\Levels\\ASSETS\\Sounds\\" + LevelName);
 					
 					if(!FILE.exists()) {
-						FILE.mkdir();
+						FILE.mkdirs();
 					}
 					
 					FILE = new File(homeDir + "\\Levels\\ASSETS\\Sounds\\" + LevelName + "\\" + FileName);

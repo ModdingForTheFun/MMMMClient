@@ -20,10 +20,7 @@ public class About {
 	
 	private Controller con;
 	
-
 	private JPanel Panel;
-		
-	private String SautoConnect;
 		
 		public About(Controller Con) {
 		
