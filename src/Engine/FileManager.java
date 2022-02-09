@@ -46,8 +46,6 @@ public String MMFolderLoc;
 	}
 	
 	
-	
-	
 	//ModManagerFolder
 	
 	public void deleteModManagerFolder() { //TODO
@@ -87,6 +85,16 @@ public String MMFolderLoc;
 		if(firstBoot) {
 			
 			System.out.println("Find Documents folder test : " + FileSystemView.getFileSystemView().getDefaultDirectory().getPath() );
+			
+			
+			// Well some code that creates the folders neccesary because some people dont have them for some reason . . .
+			
+			File MMDocFolder = new File(FileSystemView.getFileSystemView().getDefaultDirectory().getPath() + "\\ManicMiners\\Levels");
+			if(!MMDocFolder.exists()) {
+				MMDocFolder.mkdirs();
+			}
+			
+			
 			
 			if(!new File(MMMMdir + "\\ModManager").exists()) {
 				new File(MMMMdir + "\\ModManager").mkdirs();
@@ -165,9 +173,9 @@ public String MMFolderLoc;
 				
 				BufferedWriter BW = new BufferedWriter(new FileWriter(configFile));
 				
-				BW.write("-");
+				BW.write("");
 				BW.newLine();
-				BW.write(" ");
+				BW.write("");
 				BW.newLine();
 				BW.write("false");
 				BW.flush();
