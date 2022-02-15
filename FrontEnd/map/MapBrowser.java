@@ -1,5 +1,6 @@
 package map;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -276,7 +277,8 @@ private JComboBox<String> authorBox;
 		mapInfoFrame.setSize(375,200);
 		mapInfoFrame.setTitle("Map Info");
 		mapInfoFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		mapInfoFrame.setLayout(null);
+		//mapInfoFrame.setLayout(null);
+		mapInfoFrame.setLayout( new BorderLayout());
 		mapInfoFrame.setLocationRelativeTo(null);
 		if(con.com.isConnected()) {
 			mapInfoFrame.setIconImage(con.asLo.IconOn.getImage());
@@ -287,18 +289,22 @@ private JComboBox<String> authorBox;
 		
 		
 		JPanel MIFpanel = new JPanel();
-		MIFpanel.setSize(360,160);
-		MIFpanel.setLayout(null);
+//		MIFpanel.setSize(360,160);
+		//MIFpanel.setLayout(null);
+		MIFpanel.setLayout( new BorderLayout());
 		MIFpanel.setBackground(Color.BLACK);
 		
 		infoText = new JTextArea();
-		infoText.setSize(350, 150);
-		infoText.setLocation(5,5);
+//		infoText.setSize(350, 150);
+//		infoText.setLocation(5,5);
 		infoText.setEditable(false);
 		infoText.setLineWrap(true);
 		infoText.setWrapStyleWord(true);
 		
-		MIFpanel.add(infoText);
+		JScrollPane aditionalInfoContainer = new JScrollPane(infoText);
+		//aditionalInfoContainer.setBounds(5, 5, 350, 150);
+		
+		MIFpanel.add(aditionalInfoContainer, BorderLayout.CENTER);
 		
 		mapInfoFrame.setContentPane(MIFpanel);
 		

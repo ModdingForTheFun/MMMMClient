@@ -10,6 +10,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -150,11 +151,13 @@ private File LevelFile = new File("");
 		AditionalInfoText.setBorder(null);
 		
 		JTextArea Aditionalinfo = new JTextArea();
-		Aditionalinfo.setSize(350,150);
-		Aditionalinfo.setLocation(200,150);
+		//Aditionalinfo.setSize(350,150);
+		//Aditionalinfo.setLocation(200,150);
 		Aditionalinfo.setLineWrap(true);
 		Aditionalinfo.setWrapStyleWord(true);
 		
+		JScrollPane aditionalInfoContainer = new JScrollPane(Aditionalinfo);
+		aditionalInfoContainer.setBounds(200, 150, 350, 150);
 		
 		
 		browseLevel.addActionListener(new ActionListener() {
@@ -271,7 +274,7 @@ private File LevelFile = new File("");
 		UploadWindow.add(LengthText);
 		UploadWindow.add(LengthBox);
 		UploadWindow.add(AditionalInfoText);
-		UploadWindow.add(Aditionalinfo);
+		UploadWindow.add(aditionalInfoContainer);
 		UploadWindow.add(Upload);
 		
 		Panel.add(UploadWindow);

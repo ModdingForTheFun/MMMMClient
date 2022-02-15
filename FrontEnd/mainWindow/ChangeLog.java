@@ -37,6 +37,13 @@ public class ChangeLog {
 			CLT.setEditable(false);
 			CLT.setText("			---Change Log--- \n"
 					+ "\n"
+					+ " - Patch 0.7_5 - \n"
+					+ "\n"
+					+ " - Level Uploader lets you see your whole info text now.\n"
+					+ " - Map Browser lets you see the whole info text now AND is resizeable \n"
+					+ " - Donwloading files with sound assets now correctly stores the sounds \n"
+					+ "\n"
+					+ "\n"
 					+ "	- Patch 0.7_4 - \n"
 					+ "\n"
 					+ " - Hopefully fixt bug with changing from old to new Folder System,\n"

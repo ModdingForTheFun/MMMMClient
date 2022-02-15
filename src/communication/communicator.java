@@ -345,6 +345,8 @@ private LinkedList<String> packetsToSend = new LinkedList<String>();
 		boolean LastTexture = false;
 		boolean isGameDownload = false;
 		
+		String downloadedLevelName=""; // For level assets
+		
 		try {
 			Thread.sleep(10);
 		} catch (InterruptedException e1) {
@@ -447,30 +449,19 @@ private LinkedList<String> packetsToSend = new LinkedList<String>();
 				case("0x33"):
 					isTextureFetch = false;
 					FILE = new File(homeDir + "\\Levels\\" + FileName);
+					downloadedLevelName = FileName.substring(0,FileName.length() - 4);
+					System.out.println("map name : " + downloadedLevelName);
 				break;
 				
 				case("0x34"):
 					isTextureFetch = false;
-					byte[] LevelFolderName = new byte[Packet.length - readPos];
-				
-					int LFNcount = 0;
-					while(LFNcount < LevelFolderName.length) {
-						
-						LevelFolderName[LFNcount] = Packet[readPos];
-						
-						LFNcount++;
-						readPos++;
-					}
-					
-					String LevelName = new String(LevelFolderName);
-					
-					FILE = new File(homeDir + "\\Levels\\ASSETS\\Sounds\\" + LevelName);
+					FILE = new File(homeDir + "\\Levels\\ASSETS\\Sounds\\" + downloadedLevelName);
 					
 					if(!FILE.exists()) {
 						FILE.mkdirs();
 					}
 					
-					FILE = new File(homeDir + "\\Levels\\ASSETS\\Sounds\\" + LevelName + "\\" + FileName);
+					FILE = new File(homeDir + "\\Levels\\ASSETS\\Sounds\\" + downloadedLevelName + "\\" + FileName);
 				break;
 				
 				case("0x3C"):
