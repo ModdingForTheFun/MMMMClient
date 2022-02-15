@@ -443,7 +443,7 @@ private LinkedList<String> packetsToSend = new LinkedList<String>();
 				case("0x32"):
 					isTextureFetch = false;
 					FileName += "NEW";
-					FILE.createNewFile();
+					FILE = new File(FileName);
 				break;
 				
 				case("0x33"):
