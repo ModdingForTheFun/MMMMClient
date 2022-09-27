@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.text.ParseException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
@@ -50,13 +51,13 @@ public String MMFolderLoc;
 	
 	public void deleteModManagerFolder() { //TODO
 		
-		File configFolder = new File(MMFolderLoc +  "\\ModManager");
+		File configFolder = new File(MMFolderLoc +  "/ModManager");
 		
 		if(configFolder.exists()) {
 			delete(configFolder);
 		}
 		
-		File tempFolder = new File(MMFolderLoc +  "\\tempFiles");
+		File tempFolder = new File(MMFolderLoc +  "/tempFiles");
 		
 		if(tempFolder.exists()) {
 			delete(tempFolder);
@@ -78,7 +79,7 @@ public String MMFolderLoc;
 		String MMMMdir = jarDir.getAbsolutePath().toString();
 		
 		
-		String[] configData = new String[4];
+		String[] configData = new String[5];
 		
 		
 		
@@ -89,24 +90,24 @@ public String MMFolderLoc;
 			
 			// Well some code that creates the folders neccesary because some people dont have them for some reason . . .
 			
-			File MMDocFolder = new File(FileSystemView.getFileSystemView().getDefaultDirectory().getPath() + "\\ManicMiners\\Levels");
+			File MMDocFolder = new File(FileSystemView.getFileSystemView().getDefaultDirectory().getPath() + "/ManicMiners/Levels");
 			if(!MMDocFolder.exists()) {
 				MMDocFolder.mkdirs();
 			}
 			
 			
 			
-			if(!new File(MMMMdir + "\\ModManager").exists()) {
-				new File(MMMMdir + "\\ModManager").mkdirs();
+			if(!new File(MMMMdir + "/ModManager").exists()) {
+				new File(MMMMdir + "/ModManager").mkdirs();
 			}
 			
 			//move key if needed
 			
-			if(new File(System.getProperty("user.home") + "\\Documents\\ManicMiners" + "\\ModManager\\MMMM.key").exists()) {
+			if(new File(System.getProperty("user.home") + "/Documents/ManicMiners" + "/ModManager/MMMM.key").exists()) {
 				try {
-					Files.move(Paths.get(System.getProperty("user.home") + "\\Documents\\ManicMiners" + "\\ModManager\\MMMM.key"), 
-							Paths.get(MMMMdir + "\\ModManager\\MMMM.key"));
-					delete(new File(System.getProperty("user.home") + "\\Documents\\ManicMiners" + "\\ModManager\\MMMM.key"));
+					Files.move(Paths.get(System.getProperty("user.home") + "/Documents/ManicMiners" + "/ModManager/MMMM.key"), 
+							Paths.get(MMMMdir + "/ModManager/MMMM.key"));
+					delete(new File(System.getProperty("user.home") + "/Documents/ManicMiners" + "/ModManager/MMMM.key"));
 				} catch (IOException e) {
 					System.out.println("Couldnt move key file !");
 					e.printStackTrace();
@@ -115,11 +116,11 @@ public String MMFolderLoc;
 			
 			//move config
 			
-			if(new File(System.getProperty("user.home") + "\\Documents\\ManicMiners" + "\\ModManager\\MMMM.cfg").exists()) {
+			if(new File(System.getProperty("user.home") + "/Documents/ManicMiners" + "/ModManager/MMMM.cfg").exists()) {
 				try {
-					Files.move(Paths.get(System.getProperty("user.home") + "\\Documents\\ManicMiners" + "\\ModManager\\MMMM.cfg"), 
-							Paths.get(MMMMdir + "\\ModManager\\MMMM.cfg"));
-					delete(new File(System.getProperty("user.home") + "\\Documents\\ManicMiners" + "\\ModManager\\MMMM.cfg"));
+					Files.move(Paths.get(System.getProperty("user.home") + "/Documents/ManicMiners" + "/ModManager/MMMM.cfg"), 
+							Paths.get(MMMMdir + "/ModManager/MMMM.cfg"));
+					delete(new File(System.getProperty("user.home") + "/Documents/ManicMiners" + "/ModManager/MMMM.cfg"));
 				} catch (IOException e) {
 					System.out.println("Couldnt move cfg file !");
 					e.printStackTrace();
@@ -128,11 +129,11 @@ public String MMFolderLoc;
 		
 			//move key if needed new method !
 			
-			if(new File(FileSystemView.getFileSystemView().getDefaultDirectory().getPath() + "\\ManicMiners" + "\\ModManager\\MMMM.key").exists()) {
+			if(new File(FileSystemView.getFileSystemView().getDefaultDirectory().getPath() + "/ManicMiners" + "/ModManager/MMMM.key").exists()) {
 				try {
-					Files.move(Paths.get(FileSystemView.getFileSystemView().getDefaultDirectory().getPath() + "\\ManicMiners" + "\\ModManager\\MMMM.key"), 
-							Paths.get(MMMMdir + "\\ModManager\\MMMM.key"));
-					delete(new File(FileSystemView.getFileSystemView().getDefaultDirectory().getPath() + "\\ManicMiners" + "\\ModManager\\MMMM.key"));
+					Files.move(Paths.get(FileSystemView.getFileSystemView().getDefaultDirectory().getPath() + "/ManicMiners" + "/ModManager/MMMM.key"), 
+							Paths.get(MMMMdir + "/ModManager/MMMM.key"));
+					delete(new File(FileSystemView.getFileSystemView().getDefaultDirectory().getPath() + "/ManicMiners" + "/ModManager/MMMM.key"));
 				} catch (IOException e) {
 					System.out.println("Couldnt move key file !");
 					e.printStackTrace();
@@ -141,11 +142,11 @@ public String MMFolderLoc;
 			
 			//move config
 			
-			if(new File(FileSystemView.getFileSystemView().getDefaultDirectory().getPath() + "\\ManicMiners" + "\\ModManager\\MMMM.cfg").exists()) {
+			if(new File(FileSystemView.getFileSystemView().getDefaultDirectory().getPath() + "/ManicMiners" + "/ModManager/MMMM.cfg").exists()) {
 				try {
-					Files.move(Paths.get(FileSystemView.getFileSystemView().getDefaultDirectory().getPath() + "\\ManicMiners" + "\\ModManager\\MMMM.cfg"), 
-							Paths.get(MMMMdir + "\\ModManager\\MMMM.cfg"));
-					delete(new File(FileSystemView.getFileSystemView().getDefaultDirectory().getPath() + "\\ManicMiners" + "\\ModManager\\MMMM.cfg"));
+					Files.move(Paths.get(FileSystemView.getFileSystemView().getDefaultDirectory().getPath() + "/ManicMiners" + "/ModManager/MMMM.cfg"), 
+							Paths.get(MMMMdir + "/ModManager/MMMM.cfg"));
+					delete(new File(FileSystemView.getFileSystemView().getDefaultDirectory().getPath() + "/ManicMiners" + "/ModManager/MMMM.cfg"));
 				} catch (IOException e) {
 					System.out.println("Couldnt move cfg file !");
 					e.printStackTrace();
@@ -157,13 +158,13 @@ public String MMFolderLoc;
 		
 		
 		
-		File configFolder = new File(MMMMdir + "\\ModManager");
+		File configFolder = new File(MMMMdir + "/ModManager");
 		
 		if(!configFolder.exists()) {
 			configFolder.mkdirs();
 		}
 		
-		File configFile = new File(MMMMdir + "\\ModManager\\MMMM.cfg");
+		File configFile = new File(MMMMdir + "/ModManager/MMMM.cfg");
 		
 		if(!configFile.exists()) {
 			
@@ -179,7 +180,10 @@ public String MMFolderLoc;
 				BW.newLine();
 				BW.write("false");
 				BW.flush();
-				BW.write("" + FileSystemView.getFileSystemView().getDefaultDirectory().getPath() + "\\ManicMiners");
+				BW.write("" + FileSystemView.getFileSystemView().getDefaultDirectory().getPath() + "/ManicMiners");
+				BW.flush();
+				BW.newLine();
+				BW.write("");
 				BW.flush();
 				
 				BW.close();
@@ -203,10 +207,11 @@ public String MMFolderLoc;
 			configData[1] = BR.readLine(); // game location
 			configData[2] = BR.readLine(); // auto connect
 			configData[3] = BR.readLine(); // MMfolder
-			
+			configData[4] = BR.readLine(); // Window scaling
+				
 			if(configData[3] == null || (!configData[3].contains("ManicMiners"))) {
-				MMFolderLoc = FileSystemView.getFileSystemView().getDefaultDirectory().getPath() + "\\ManicMiners";
-				configData[3] = FileSystemView.getFileSystemView().getDefaultDirectory().getPath() + "\\ManicMiners";
+				MMFolderLoc = FileSystemView.getFileSystemView().getDefaultDirectory().getPath() + "/ManicMiners";
+				configData[3] = FileSystemView.getFileSystemView().getDefaultDirectory().getPath() + "/ManicMiners";
 			}else
 			{
 				MMFolderLoc = configData[3];
@@ -234,13 +239,13 @@ public String MMFolderLoc;
 		
 		String MMMMdir = jarDir.getAbsolutePath().toString();
 		
-		File configFolder = new File(MMMMdir + "\\ModManager");
+		File configFolder = new File(MMMMdir + "/ModManager");
 		
 		if(!configFolder.exists()) {
 			configFolder.mkdir();
 		}
 		
-		File configFile = new File(MMMMdir + "\\ModManager\\MMMM.cfg");
+		File configFile = new File(MMMMdir + "/ModManager/MMMM.cfg");
 		
 		if(!configFile.exists()) {
 			
@@ -290,7 +295,7 @@ public String MMFolderLoc;
 		
 		String MMMMdir = jarDir.getAbsolutePath().toString();
 		
-		File keyFile = new File(MMMMdir + "\\ModManager\\MMMM.key");
+		File keyFile = new File(MMMMdir + "/ModManager/MMMM.key");
 		
 		keyFile.delete();
 		
@@ -302,7 +307,7 @@ public String MMFolderLoc;
 		
 		String MMMMdir = jarDir.getAbsolutePath().toString();
 		
-		File keyFile = new File(MMMMdir + "\\ModManager\\MMMM.key");
+		File keyFile = new File(MMMMdir + "/ModManager/MMMM.key");
 		
 		if(!keyFile.exists()) {
 			
@@ -366,7 +371,7 @@ public String MMFolderLoc;
 	
 	public String[][] getLevelData(){
 		
-		File levelFolder = new File(MMFolderLoc + "\\Levels");
+		File levelFolder = new File(MMFolderLoc + "/Levels");
 		
 		String[] levels = levelFolder.list();
 		
@@ -390,7 +395,7 @@ public String MMFolderLoc;
 		int count = 0;
 		for(String LevelName : LevelList) {
 			
-			File LevelFile = new File(MMFolderLoc + "\\Levels\\" + LevelName);
+			File LevelFile = new File(MMFolderLoc + "/Levels/" + LevelName);
 			
 			LinkedList<String> commentList = new LinkedList<String>();
 			
@@ -534,21 +539,21 @@ public String MMFolderLoc;
 				
 				popUp.dispose();
 				
-				File LevelFile = new File(MMFolderLoc + "\\Levels\\" + mapName + ".dat");
+				File LevelFile = new File(MMFolderLoc + "/Levels/" + mapName + ".dat");
 				
 				if(LevelFile.exists()) {
 					System.out.println("Gelöscht");
 				}else {
-					System.out.println(MMFolderLoc + "\\Levels\\" + mapName + ".dat" + "_wurde nicht gefunden");
+					System.out.println(MMFolderLoc + "/Levels/" + mapName + ".dat" + "_wurde nicht gefunden");
 				}
 				
-				if(new File(MMFolderLoc + "\\Levels\\ASSETS\\Sounds\\" + mapName).exists()) {
-					delete(new File(MMFolderLoc + "\\Levels\\ASSETS\\Sounds\\" + mapName));
+				if(new File(MMFolderLoc + "/Levels/ASSETS/Sounds/" + mapName).exists()) {
+					delete(new File(MMFolderLoc + "/Levels/ASSETS/Sounds/" + mapName));
 				}
 				
 				delete(LevelFile);
 				
-				File assetsFolder = new File(MMFolderLoc + "\\Levels\\ASSETS\\Sounds\\" + mapName);
+				File assetsFolder = new File(MMFolderLoc + "/Levels/ASSETS/Sounds/" + mapName);
 				
 				if(assetsFolder.exists()) {
 					delete(assetsFolder);
@@ -710,18 +715,18 @@ public String MMFolderLoc;
 		
 		HashMap<String,ImageIcon> LoadedTextures = new HashMap<String, ImageIcon>();
 		
-		File textureMainFolder = new File(MMFolderLoc + "\\tempFiles");
+		File textureMainFolder = new File(MMFolderLoc + "/tempFiles");
 		
 		if(!textureMainFolder.exists()) {
 			textureMainFolder.mkdir();
 		}
 		
-		File ArmFolder = new File(MMFolderLoc + "\\tempFiles\\Arm");
-		File BeltFolder = new File(MMFolderLoc + "\\tempFiles\\Belt");
-		File FaceFolder = new File(MMFolderLoc + "\\tempFiles\\Face");
-		File LegLeftFolder = new File(MMFolderLoc + "\\tempFiles\\LegLeft");
-		File LegRightFolder = new File(MMFolderLoc + "\\tempFiles\\LegRight");
-		File TorsoFolder = new File(MMFolderLoc + "\\tempFiles\\Torso");
+		File ArmFolder = new File(MMFolderLoc + "/tempFiles/Arm");
+		File BeltFolder = new File(MMFolderLoc + "/tempFiles/Belt");
+		File FaceFolder = new File(MMFolderLoc + "/tempFiles/Face");
+		File LegLeftFolder = new File(MMFolderLoc + "/tempFiles/LegLeft");
+		File LegRightFolder = new File(MMFolderLoc + "/tempFiles/LegRight");
+		File TorsoFolder = new File(MMFolderLoc + "/tempFiles/Torso");
 		
 		if(!ArmFolder.exists()) {
 			ArmFolder.mkdir();
@@ -757,7 +762,7 @@ public String MMFolderLoc;
 			Log(" ");
 			Log("	-" + SubFolder + "-");
 			
-			String[] folderItems = new File(MMFolderLoc + "\\tempFiles\\" + SubFolder).list();
+			String[] folderItems = new File(MMFolderLoc + "/tempFiles/" + SubFolder).list();
 			
 			int counter = 0;
 			
@@ -768,7 +773,7 @@ public String MMFolderLoc;
 				Log("		-" + texture + "-");
 				
 				if(texture.contains(".png")) {
-					LoadedTextures.put(SubFolder + counter, new ImageIcon(MMFolderLoc + "\\tempFiles\\" + SubFolder + "\\" + texture));
+					LoadedTextures.put(SubFolder + counter, new ImageIcon(MMFolderLoc + "/tempFiles/" + SubFolder + "/" + texture));
 				
 					counter++;
 				}
@@ -787,18 +792,18 @@ public String MMFolderLoc;
 		
 		loadedTextures = new HashMap<String, ImageIcon>();
 		
-		File textureMainFolder = new File(MMFolderLoc + "\\Textures");
+		File textureMainFolder = new File(MMFolderLoc + "/Textures");
 		
 		if(!textureMainFolder.exists()) {
 			textureMainFolder.mkdir();
 		}
 		
-		File ArmFolder = new File(MMFolderLoc + "\\Textures\\Arm");
-		File BeltFolder = new File(MMFolderLoc + "\\Textures\\Belt");
-		File FaceFolder = new File(MMFolderLoc + "\\Textures\\Face");
-		File LegLeftFolder = new File(MMFolderLoc + "\\Textures\\LegLeft");
-		File LegRightFolder = new File(MMFolderLoc + "\\Textures\\LegRight");
-		File TorsoFolder = new File(MMFolderLoc + "\\Textures\\Torso");
+		File ArmFolder = new File(MMFolderLoc + "/Textures/Arm");
+		File BeltFolder = new File(MMFolderLoc + "/Textures/Belt");
+		File FaceFolder = new File(MMFolderLoc + "/Textures/Face");
+		File LegLeftFolder = new File(MMFolderLoc + "/Textures/LegLeft");
+		File LegRightFolder = new File(MMFolderLoc + "/Textures/LegRight");
+		File TorsoFolder = new File(MMFolderLoc + "/Textures/Torso");
 		
 		if(!ArmFolder.exists()) {
 			ArmFolder.mkdir();
@@ -834,7 +839,7 @@ public String MMFolderLoc;
 			Log(" ");
 			Log("	-" + SubFolder + "-");
 			
-			String[] folderItems = new File(MMFolderLoc + "\\Textures\\" + SubFolder).list();
+			String[] folderItems = new File(MMFolderLoc + "/Textures/" + SubFolder).list();
 			
 			Log("		Texture List : ");
 			
@@ -843,7 +848,7 @@ public String MMFolderLoc;
 				Log("		-" + texture + "-");
 				
 				if(texture.contains(".png")) {
-					loadedTextures.put(SubFolder + counter, new ImageIcon(MMFolderLoc + "\\Textures\\" + SubFolder + "\\" + texture));
+					loadedTextures.put(SubFolder + counter, new ImageIcon(MMFolderLoc + "/Textures/" + SubFolder + "/" + texture));
 				
 					counter++;
 				}
@@ -1027,16 +1032,16 @@ public String MMFolderLoc;
 			subFolder = "Torso";
 		}
 		
-		String fileName = filePath.substring(filePath.lastIndexOf("\\") + 1);
+		String fileName = filePath.substring(filePath.lastIndexOf("/") + 1);
 		
 		System.out.println("FileName texture : " + fileName);
 		
-		File newFile = new File(MMFolderLoc + "\\Textures\\" + subFolder + "\\" + fileName);
+		File newFile = new File(MMFolderLoc + "/Textures/" + subFolder + "/" + fileName);
 		
 		try {
 			Files.copy(file.toPath(),newFile.toPath());
 		
-			loadedTextures.put(subFolder + counter, new ImageIcon(MMFolderLoc + "\\Textures\\" + subFolder + "\\" + fileName));
+			loadedTextures.put(subFolder + counter, new ImageIcon(MMFolderLoc + "/Textures/" + subFolder + "/" + fileName));
 			
 			counter++;
 		} catch (IOException e) {
@@ -1078,7 +1083,7 @@ public String MMFolderLoc;
 		
 		String dir = jarDir.getAbsolutePath().toString();
 		
-		//File LogFile = new File(dir + "\\MMMM.Log");
+		//File LogFile = new File(dir + "/MMMM.Log");
 		
 		File LogFile = new File("MMMM.Log");
 		

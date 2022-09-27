@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 import javax.swing.JTextField;
 
+import Engine.Controller;
 import FrontEnd.AssetLoader;
 
 public class DownloadWindow {
@@ -28,7 +29,7 @@ private int curFileNr = 1;
 	public DownloadWindow(AssetLoader asLo) {
 		
 		window = new JFrame();
-		window.setSize(300,250);
+		window.setSize((int)(300 * Controller.scale),(int)(250 * Controller.scale));
 		window.setLocationRelativeTo(null);
 		window.setLayout(null);
 		window.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
@@ -36,39 +37,45 @@ private int curFileNr = 1;
 		window.setTitle("Downloading");
 		
 		JPanel content = new JPanel();
-		content.setSize(300,250);
+		content.setSize((int)(300 * Controller.scale),(int)(250 * Controller.scale));
 		content.setLayout(null);
 		
 		fileAmount = new JTextField();
-		fileAmount.setSize(200,25);
-		fileAmount.setLocation(50, 25);
+		fileAmount.setFont(Controller.font);
+		fileAmount.setFont(Controller.font);
+		fileAmount.setSize((int)(200 * Controller.scale),(int)(25 * Controller.scale));
+		fileAmount.setLocation((int)(50 * Controller.scale), (int)(25 * Controller.scale));
 		fileAmount.setEditable(false);
 		fileAmount.setBackground(null);
 		fileAmount.setBorder(null);
 		
 		downloadProgress = new JProgressBar();
-		downloadProgress.setSize(200,25);
-		downloadProgress.setLocation(50, 50);
+		downloadProgress.setSize((int)(200 * Controller.scale),(int)(25 * Controller.scale));
+		downloadProgress.setLocation((int)(50 * Controller.scale),(int)(50 * Controller.scale));
 		downloadProgress.setMinimum(0);
 		
 		fileName = new JTextField();
-		fileName.setSize(200,25);
-		fileName.setLocation(50, 100);
+		fileName.setFont(Controller.font);
+		fileName.setFont(Controller.font);
+		fileName.setSize((int)(200 * Controller.scale),(int)(25 * Controller.scale));
+		fileName.setLocation((int)(50 * Controller.scale), (int)(100 * Controller.scale));
 		fileName.setEditable(false);
 		fileName.setBackground(null);
 		fileName.setBorder(null);
 		
 		fileProgress = new JProgressBar();
-		fileProgress.setSize(200,25);
-		fileProgress.setLocation(50,125);
+		fileProgress.setSize((int)(200 * Controller.scale),(int)(25 * Controller.scale));
+		fileProgress.setLocation((int)(50 * Controller.scale),(int)(125 * Controller.scale));
 		fileProgress.setMaximum(100);
 		fileProgress.setMinimum(0);
 		
 		close = new JButton();
+		close.setFont(Controller.font);
+		close.setFont(Controller.font);
 		close.setText("Close");
 		close.setVisible(false);
-		close.setSize(100,25);
-		close.setLocation(100, 175);
+		close.setSize((int)(100 * Controller.scale),(int)(25 * Controller.scale));
+		close.setLocation((int)(100 * Controller.scale), (int)(175 * Controller.scale));
 		close.addActionListener(new ActionListener() {
 
 			@Override

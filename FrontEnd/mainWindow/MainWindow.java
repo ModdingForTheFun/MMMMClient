@@ -1,5 +1,6 @@
 package mainWindow;
 
+import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -75,10 +76,10 @@ private String version;
 		currentWindow.setLayout(null);
 		currentWindow.setLocation(0, 0);
 		currentWindow.setOpaque(false);
-		currentWindow.setSize(720,480);
+		currentWindow.setSize((int)(720 * Controller.scale),(int)(480 * Controller.scale));
 		
 		window = new JFrame();
-		window.setSize(720,480);
+		window.setSize((int)(720 * Controller.scale),(int)(480 * Controller.scale));
 		window.setResizable(false);
 		window.setTitle("Manic Miners Mod Manager (Unofficial) " + version);
 		window.setLocationRelativeTo(null);
@@ -145,7 +146,7 @@ private String version;
 	private JPanel Content() {
 		
 		JPanel content = new JPanel();
-		content.setSize(720, 480);
+		content.setSize((int)(720 * Controller.scale),(int)(480 * Controller.scale));
 		content.setLocation(0,0);
 		content.setLayout(null);
 		
@@ -160,10 +161,10 @@ private String version;
 	private JLabel Background() {
 		
 		JLabel background = new JLabel();
-		background.setSize(720,480);
+		background.setSize((int)(720 * Controller.scale),(int)(480 * Controller.scale));
 		background.setLocation(0, 0);
 		
-		Image bgImage = AsLo.Background.getImage().getScaledInstance(720, 480, Image.SCALE_SMOOTH);
+		Image bgImage = AsLo.Background.getImage().getScaledInstance((int)(720 * Controller.scale),(int)(480 * Controller.scale), Image.SCALE_SMOOTH);
 		
 		background.setIcon(new ImageIcon(bgImage));
 		
@@ -184,8 +185,10 @@ private String version;
 	 private JMenu ManicMiners() {
 		 
 		 JMenu mm = new JMenu("ManicMiners");
+		 mm.setFont(Controller.font);
 		 
 		 JMenuItem playMM = new JMenuItem("Start Game");
+		 playMM.setFont(Controller.font);
 		 playMM.addActionListener(new ActionListener() {
 
 			@Override
@@ -288,8 +291,10 @@ private String version;
 	 
 	private JMenu SettingsMenu() {
 		JMenu settingsMenu = new JMenu("Options");
+		settingsMenu.setFont(Controller.font);
 		
 		JMenuItem connectITEM = new JMenuItem("Connect");
+		connectITEM.setFont(Controller.font);
 		connectITEM.addActionListener(new ActionListener() {
 
 			@Override
@@ -318,6 +323,7 @@ private String version;
 		settingsMenu.add(connectITEM);
 		
 		JMenuItem disconnectITEM = new JMenuItem("Disconnect");
+		disconnectITEM.setFont(Controller.font);
 		disconnectITEM.addActionListener(new ActionListener() {
 
 			@Override
@@ -332,6 +338,7 @@ private String version;
 		settingsMenu.add(disconnectITEM);
 		
 		JMenuItem settingsITEM = new JMenuItem("Settings");
+		settingsITEM.setFont(Controller.font);
 		settingsITEM.addActionListener(new ActionListener() {
 
 			@Override
@@ -351,6 +358,7 @@ private String version;
 		settingsMenu.add(settingsITEM);
 		
 		JMenuItem deleteModManager = new JMenuItem("Delete ModManager");
+		deleteModManager.setFont(Controller.font);
 		deleteModManager.addActionListener(new ActionListener() {
 
 			@Override
@@ -358,22 +366,22 @@ private String version;
 				
 				JDialog really = new JDialog();
 				really.setTitle("Remove it ?");
-				really.setSize(350,150);
+				really.setSize((int)(350 * Controller.scale),(int)(150 * Controller.scale));
 				really.setLayout(null);
 				really.setLocationRelativeTo(null);
 				really.setModal(true);
 				
 				JTextField ReallyText = new JTextField();
-				ReallyText.setSize(300,25);
-				ReallyText.setLocation(25,25);
+				ReallyText.setSize((int)(300 * Controller.scale),(int)(25 * Controller.scale));
+				ReallyText.setLocation((int)(25 * Controller.scale),(int)(25 * Controller.scale));
 				ReallyText.setEditable(false);
 				ReallyText.setBackground(null);
 				ReallyText.setBorder(null);
 				ReallyText.setText("Do you really wanna remove the ModManager ?");
 				
 				JButton reallyButton = new JButton();
-				reallyButton.setSize(125,25);
-				reallyButton.setLocation(25,75);
+				reallyButton.setSize((int)(125 * Controller.scale),(int)(25 * Controller.scale));
+				reallyButton.setLocation((int)(25 * Controller.scale),(int)(75 * Controller.scale));
 				reallyButton.setText("YES");
 				reallyButton.addActionListener(new ActionListener() {
 
@@ -386,8 +394,8 @@ private String version;
 				});
 				
 				JButton noButton = new JButton();
-				noButton.setSize(125,25);
-				noButton.setLocation(175,75);
+				noButton.setSize((int)(125 * Controller.scale),(int)(25 * Controller.scale));
+				noButton.setLocation((int)(175 * Controller.scale),(int)(75 * Controller.scale));
 				noButton.setText("NO");
 				noButton.addActionListener(new ActionListener() {
 
@@ -422,6 +430,7 @@ private String version;
 		settingsMenu.add(deleteModManager);
 		
 		JMenuItem ABOUT = new JMenuItem("About");
+		ABOUT.setFont(Controller.font);
 		ABOUT.addActionListener(new ActionListener() {
 
 			@Override
@@ -441,6 +450,7 @@ private String version;
 		settingsMenu.add(ABOUT);
 		
 		JMenuItem ChangeLog = new JMenuItem("Change Log");
+		ChangeLog.setFont(Controller.font);
 		ChangeLog.addActionListener(new ActionListener() {
 
 			@Override
@@ -466,7 +476,10 @@ private String version;
 	private JMenu MapMenu() {
 		
 		JMenu mapMenu = new JMenu("Maps");
+		mapMenu.setFont(Controller.font);
+		
 	        JMenuItem browseMapITEM = new JMenuItem("Browse");
+	        browseMapITEM.setFont(Controller.font);
 	        browseMapITEM.addActionListener(new ActionListener() {
 
 				@Override
@@ -494,6 +507,7 @@ private String version;
 	        
 	        
 	        JMenuItem uploadMapITEM = new JMenuItem("Upload");
+	        uploadMapITEM.setFont(Controller.font);
 	        uploadMapITEM.addActionListener(new ActionListener() {
 
 				@Override
@@ -520,6 +534,7 @@ private String version;
 	        
 	        
 	        JMenuItem manageITEM = new JMenuItem("Manage");
+	        manageITEM.setFont(Controller.font);
 	        manageITEM.addActionListener(new ActionListener() {
 
 				@Override
@@ -544,8 +559,10 @@ private String version;
 	 private JMenu TextureMenu() {
 	    	
 		 JMenu textureMenu = new JMenu("Texture");
-	        
+	     textureMenu.setFont(Controller.font);   
+		 
 	     JMenuItem browseTexturesITEM = new JMenuItem("Browse");
+	     browseTexturesITEM.setFont(Controller.font);
 	     browseTexturesITEM.addActionListener(new ActionListener() {
 
 	    	 @Override
@@ -572,6 +589,7 @@ private String version;
 	        
 	        
 	        JMenuItem uploadTexturesITEM = new JMenuItem("Upload");
+	        uploadTexturesITEM.setFont(Controller.font);
 	        uploadTexturesITEM.addActionListener(new ActionListener() {
 
 				@Override
@@ -598,6 +616,7 @@ private String version;
 	        
 	        
 	        JMenuItem manageTextureITEM = new JMenuItem("Manage");
+	        manageTextureITEM.setFont(Controller.font);
 	        manageTextureITEM.addActionListener(new ActionListener() {
 
 				@Override

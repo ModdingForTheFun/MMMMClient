@@ -141,7 +141,9 @@ private LinkedList<String> packetsToSend = new LinkedList<String>();
 					
 				}else {
 					
-					server = new Socket("mmmmserver.dynv6.net",8888);
+					//server = new Socket("mmmmserver.dynv6.net",8888);
+					
+					server = new Socket("31.16.161.109",8888);
 					
 				}
 				
@@ -448,82 +450,82 @@ private LinkedList<String> packetsToSend = new LinkedList<String>();
 				
 				case("0x33"):
 					isTextureFetch = false;
-					FILE = new File(homeDir + "\\Levels\\" + FileName);
+					FILE = new File(homeDir + "/Levels/" + FileName);
 					downloadedLevelName = FileName.substring(0,FileName.length() - 4);
 					System.out.println("map name : " + downloadedLevelName);
 				break;
 				
 				case("0x34"):
 					isTextureFetch = false;
-					FILE = new File(homeDir + "\\Levels\\ASSETS\\Sounds\\" + downloadedLevelName);
+					FILE = new File(homeDir + "/Levels/ASSETS/Sounds/" + downloadedLevelName);
 					
 					if(!FILE.exists()) {
 						FILE.mkdirs();
 					}
 					
-					FILE = new File(homeDir + "\\Levels\\ASSETS\\Sounds\\" + downloadedLevelName + "\\" + FileName);
+					FILE = new File(homeDir + "/Levels/ASSETS/Sounds/" + downloadedLevelName + "/" + FileName);
 				break;
 				
 				case("0x3C"):
 					isTextureFetch = true;
-					FILE = new File(homeDir + "\\tempFiles\\Arm");
+					FILE = new File(homeDir + "/tempFiles/Arm");
 					
 					if(!FILE.exists()) {
 						FILE.mkdir();
 					}
 					
-					FILE = new File(homeDir + "\\tempFiles\\Arm\\" + FileName);
+					FILE = new File(homeDir + "/tempFiles/Arm/" + FileName);
 					FILE.deleteOnExit();
 				break;
 				
 				case("0x3D"):
 					isTextureFetch = true;
-					FILE = new File(homeDir + "\\tempFiles\\Belt");
+					FILE = new File(homeDir + "/tempFiles/Belt");
 					
 					if(!FILE.exists()) {
 						FILE.mkdir();
 					}
 					
-					FILE = new File(homeDir + "\\tempFiles\\Belt\\" + FileName);
+					FILE = new File(homeDir + "/tempFiles/Belt/" + FileName);
 					FILE.deleteOnExit();
 					
 				break;
 				
 				case("0x3E"):
 					isTextureFetch = true;
-					FILE = new File(homeDir + "\\tempFiles\\Face");
+					FILE = new File(homeDir + "/tempFiles/Face");
 					
 					if(!FILE.exists()) {
 						FILE.mkdir();
 					}
 					
-					FILE = new File(homeDir + "\\tempFiles\\Face\\" + FileName);
+					FILE = new File(homeDir + "/tempFiles/Face/" + FileName);
 					FILE.deleteOnExit();
 					
 				break;
 				
 				case("0x3F"):
 					isTextureFetch = true;
-					FILE = new File(homeDir + "\\tempFiles\\LegLeft");
+					FILE = new File(homeDir + "/tempFiles/LegLeft");
 					
 					if(!FILE.exists()) {
 						FILE.mkdir();
 					}
 					
-					FILE = new File(homeDir + "\\tempFiles\\LegLeft\\" + FileName);
+					FILE = new File(homeDir + "/tempFiles/LegLeft/" + FileName);
 					FILE.deleteOnExit();
 					
 				break;
 				
 				case("0x40"):
 					isTextureFetch = true;
-					FILE = new File(homeDir + "\\tempFiles\\LegRight");
+					FILE = new File(homeDir + "/tempFiles/LegRight");
 					
 					if(!FILE.exists()) {
 						FILE.mkdir();
 					}
 					
-					FILE = new File(homeDir + "\\tempFiles\\LegRight\\" + FileName);
+					FILE = new File(homeDir + "/tempFiles/LegRight/" + FileName);
 					FILE.deleteOnExit();
 					
 				break;
@@ -531,13 +533,13 @@ private LinkedList<String> packetsToSend = new LinkedList<String>();
 				case("0x41"):
 					isTextureFetch = true;
 					LastTexture=true;
-					FILE = new File(homeDir + "\\tempFiles\\Torso");
+					FILE = new File(homeDir + "/tempFiles/Torso");
 					
 					if(!FILE.exists()) {
 						FILE.mkdir();
 					}
 					
-					FILE = new File(homeDir + "\\tempFiles\\Torso\\" + FileName);
+					FILE = new File(homeDir + "/tempFiles/Torso/" + FileName);
 					FILE.deleteOnExit();
 					
 				break;
@@ -547,7 +549,7 @@ private LinkedList<String> packetsToSend = new LinkedList<String>();
 				case("0x50"):
 					isTextureFetch = false;
 					isGameDownload = true;
-					FILE = new File(FiMa.getConfig()[1] + "\\" +  FileName);
+					FILE = new File(FiMa.getConfig()[1] + "/" +  FileName);
 					System.out.println("GameZipLocation");
 				break;
 				

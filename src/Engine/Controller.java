@@ -1,5 +1,6 @@
 package Engine;
 
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -17,6 +18,9 @@ import mainWindow.MainWindow;
 
 public class Controller extends Thread{
 
+public static double scale = 1;
+public static Font font;
+	
 private String version = "UwU"; // Client Version
 
 public AssetLoader asLo;
@@ -59,6 +63,24 @@ private boolean running = false;
 		
 		com = new communicator(this,dev,exe,jar,fiMa);
 		
+		// set scaling
+		try {
+			
+			double S = Double.parseDouble(fiMa.getConfig()[4]);
+			
+			scale = S;
+			
+		}catch(Exception e){
+			
+			fiMa.Log("Unable to get Scale settings");
+			
+		}
+		
+		font = new Font("Dialog",Font.PLAIN,(int)(12 * scale));
+		
+		
+		
+		
 		mainWin = new MainWindow(version,asLo,com,fiMa,this); // needs communicator for windows aswell as assets
 		mainWin.setVisible();
 		
@@ -100,7 +122,7 @@ private boolean running = false;
 	private void ExeJarCheck() {
 		
 		File F = new File("");
-		F = new File(F.getAbsoluteFile() + "\\");
+		F = new File(F.getAbsoluteFile() + "/");
 		F.deleteOnExit();
 		
 		String curDir = F.getAbsolutePath();

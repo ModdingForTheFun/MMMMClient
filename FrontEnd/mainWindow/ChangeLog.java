@@ -19,23 +19,30 @@ public class ChangeLog {
 			con = Con;
 			
 			Panel = new JPanel();
-			Panel.setSize(720,480);
+			Panel.setSize((int)(720 * Controller.scale),(int)(480 * Controller.scale));
 			Panel.setLocation(0, 0);
 			Panel.setLayout(null);
 			Panel.setOpaque(false);
 			
 			JPanel Window = new JPanel();
-			Window.setSize(new Dimension(655,370));
+			Window.setSize(new Dimension((int)(655 * Controller.scale),(int)(370 * Controller.scale)));
 			Window.setBackground(Color.BLACK);
-			Window.setLocation(25,25);
+			Window.setLocation((int)(25 * Controller.scale),(int)(25 * Controller.scale));
 			Window.setLayout(null);
 			
-			JTextArea CLT = new JTextArea(); //About Text
-			CLT.setSize(645,360);
+			JTextArea CLT = new JTextArea(); //About Text 
+			CLT.setFont(Controller.font);
+			CLT.setSize((int)(645 * Controller.scale),(int)(360 * Controller.scale));
 			CLT.setBorder(null);
-			CLT.setLocation(5, 5);
+			CLT.setLocation((int)(5 * Controller.scale), (int)(5 * Controller.scale));
 			CLT.setEditable(false);
 			CLT.setText("			---Change Log--- \n"
+					+ "\n"
+					+ " - Patch 0.8_0 - \n"
+					+ "\n"
+					+ " - Fixed Linux Support Problems \n"
+					+ " - Client is finnaly resizable (needs restart) \n"
+					+ "\n"
 					+ "\n"
 					+ " - Patch 0.7_5 - \n"
 					+ "\n"

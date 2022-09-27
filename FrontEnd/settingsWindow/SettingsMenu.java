@@ -31,7 +31,7 @@ private String SautoConnect;
 		con = Con;
 		
 		Panel = new JPanel();
-		Panel.setSize(720,480);
+		Panel.setSize((int)(720 * Controller.scale),(int)(480 * Controller.scale));
 		Panel.setLocation(0, 0);
 		Panel.setLayout(null);
 		Panel.setOpaque(false);
@@ -39,31 +39,34 @@ private String SautoConnect;
 		String[] settings = con.fiMa.getConfig();
 		
 		JPanel SettingsWindow = new JPanel();
-		SettingsWindow.setSize(new Dimension(655,370));
+		SettingsWindow.setSize(new Dimension((int)(655 * Controller.scale),(int)(370 * Controller.scale)));
 		SettingsWindow.setBackground(Color.LIGHT_GRAY);
-		SettingsWindow.setLocation(25,25);
+		SettingsWindow.setLocation((int)(25 * Controller.scale),(int)(25 * Controller.scale));
 		SettingsWindow.setLayout(null);
 		
 		
 		// Coduments folder IF someone has a wierd documents folder
 		
 				JTextField DocuFolderText = new JTextField();
-				DocuFolderText.setSize(425,25);
-				DocuFolderText.setLocation(125,50);
+				DocuFolderText.setFont(Controller.font);
+				DocuFolderText.setSize((int)(425 * Controller.scale),(int)(25 * Controller.scale));
+				DocuFolderText.setLocation((int)(125 * Controller.scale),(int)(50 * Controller.scale));
 				DocuFolderText.setEditable(false);
 				DocuFolderText.setBackground(null);
 				DocuFolderText.setBorder(null);
 				DocuFolderText.setText("ManicMiners Folder : (in Documents , not the game)");
 				
 				JTextField DocuLocation = new JTextField();
-				DocuLocation.setSize(425,25);
-				DocuLocation.setLocation(125,75);
+				DocuLocation.setFont(Controller.font);
+				DocuLocation.setSize((int)(425 * Controller.scale),(int)(25 * Controller.scale));
+				DocuLocation.setLocation((int)(125 * Controller.scale),(int)(75 * Controller.scale));
 				DocuLocation.setText(settings[3]);
 				
 				
 				JButton DocuLocSelection = new JButton();
-				DocuLocSelection.setSize(25,25);
-				DocuLocSelection.setLocation(100,75);
+				DocuLocSelection.setFont(Controller.font);
+				DocuLocSelection.setSize((int)(25 * Controller.scale),(int)(25 * Controller.scale));
+				DocuLocSelection.setLocation((int)(100 * Controller.scale),(int)(75 * Controller.scale));
 				DocuLocSelection.setIcon(UIManager.getIcon("FileView.directoryIcon"));
 				DocuLocSelection.addActionListener(new ActionListener() {
 
@@ -92,38 +95,43 @@ private String SautoConnect;
 		// user name
 		
 		JTextField UserNameText = new JTextField();
-		UserNameText.setSize(125,25);
-		UserNameText.setLocation(125,125);
+		UserNameText.setFont(Controller.font);
+		UserNameText.setSize((int)(125 * Controller.scale),(int)(25 * Controller.scale));
+		UserNameText.setLocation((int)(125 * Controller.scale),(int)(125 * Controller.scale));
 		UserNameText.setEditable(false);
 		UserNameText.setBackground(null);
 		UserNameText.setBorder(null);
 		UserNameText.setText("Username : ");
 		
 		JTextField UserName = new JTextField();
-		UserName.setSize(125,25);
-		UserName.setLocation(125,155);
+		UserName.setFont(Controller.font);
+		UserName.setSize((int)(125 * Controller.scale),(int)(25 * Controller.scale));
+		UserName.setLocation((int)(125 * Controller.scale),(int)(155 * Controller.scale));
 		UserName.setText(settings[0]);
 		
 		
 		// Game location
 		
 		JTextField GameLocationText = new JTextField();
-		GameLocationText.setSize(350,25);
-		GameLocationText.setLocation(125,200);
+		GameLocationText.setFont(Controller.font);
+		GameLocationText.setSize((int)(350 * Controller.scale),(int)(25 * Controller.scale));
+		GameLocationText.setLocation((int)(125 * Controller.scale),(int)(200 * Controller.scale));
 		GameLocationText.setEditable(false);
 		GameLocationText.setBackground(null);
 		GameLocationText.setBorder(null);
 		GameLocationText.setText("GameLocation : (ManicMiners.exe)");
 		
 		JTextField GameLocation = new JTextField();
-		GameLocation.setSize(425,25);
-		GameLocation.setLocation(125,235);
+		GameLocation.setFont(Controller.font);
+		GameLocation.setSize((int)(425 * Controller.scale),(int)(25 * Controller.scale));
+		GameLocation.setLocation((int)(125 * Controller.scale),(int)(235 * Controller.scale));
 		GameLocation.setText(settings[1]);
 		
 		
 		JButton locSelection = new JButton();
-		locSelection.setSize(25,25);
-		locSelection.setLocation(100,235);
+		locSelection.setFont(Controller.font);
+		locSelection.setSize((int)(25 * Controller.scale),(int)(25 * Controller.scale));
+		locSelection.setLocation((int)(100 * Controller.scale),(int)(235 * Controller.scale));
 		locSelection.setIcon(UIManager.getIcon("FileView.directoryIcon"));
 		locSelection.addActionListener(new ActionListener() {
 
@@ -156,9 +164,10 @@ private String SautoConnect;
 		SautoConnect = "" + settings[2];
 		
 		JCheckBox autoConnect = new JCheckBox();
-		autoConnect.setSize(225,25);
+		autoConnect.setSize((int)(225 * Controller.scale),(int)(25 * Controller.scale));
+		autoConnect.setFont(Controller.font);
 		autoConnect.setText("Automaticly connect to Server");
-		autoConnect.setLocation(100,265);
+		autoConnect.setLocation((int)(100 * Controller.scale),(int)(265 * Controller.scale));
 		autoConnect.setBackground(null);
 		if(SautoConnect.equals("true")) {
 			autoConnect.setSelected(true);
@@ -178,12 +187,34 @@ private String SautoConnect;
 			
 		});
 		
+		
+		
+		// window scale
+		
+		
+		JTextField winScaleText = new JTextField();
+		winScaleText.setFont(Controller.font);
+		winScaleText.setSize((int)(350 * Controller.scale),(int)(25 * Controller.scale));
+		winScaleText.setLocation((int)(125 * Controller.scale),(int)(300 * Controller.scale));
+		winScaleText.setEditable(false);
+		winScaleText.setBackground(null);
+		winScaleText.setBorder(null);
+		winScaleText.setText("Window Scale, Restart after (Use . for comma numbers)");
+		
+		JTextField winScale = new JTextField();
+		winScale.setFont(Controller.font);
+		winScale.setSize((int)(125 * Controller.scale),(int)(25 * Controller.scale));
+		winScale.setLocation((int)(125 * Controller.scale),(int)(330 * Controller.scale));
+		winScale.setText(settings[4]);
+		
+		
 		// save settings
 		
 		
 		JButton Confirm = new JButton();
-		Confirm.setSize(125,25);
-		Confirm.setLocation(500,325);
+		Confirm.setFont(Controller.font);
+		Confirm.setSize((int)(125 * Controller.scale),(int)(25 * Controller.scale));
+		Confirm.setLocation((int)(500 * Controller.scale),(int)(325 * Controller.scale));
 		Confirm.setText("Save");
 		Confirm.addActionListener(new ActionListener() {
 
@@ -198,7 +229,7 @@ private String SautoConnect;
 					}
 					
 					con.mainWin.warWin.DisplayWarning(new String[]{"Warning !","Dont change your username later.","You will lose acces to update your maps.","Ok"});
-					con.fiMa.writeToConfig(new String[] {UserName.getText(),GameLocation.getText(),SautoConnect,DocuLocation.getText()});
+					con.fiMa.writeToConfig(new String[] {UserName.getText(),GameLocation.getText(),SautoConnect,DocuLocation.getText(),winScale.getText()});
 				}else {
 					con.mainWin.warWin.DisplayWarning(new String[]{"Faulty Username","Your Username is to Short.","Please use a Longer Username","Ok"});
 				}
@@ -220,6 +251,9 @@ private String SautoConnect;
 		SettingsWindow.add(locSelection);
 		
 		SettingsWindow.add(autoConnect);
+		
+		SettingsWindow.add(winScaleText);
+		SettingsWindow.add(winScale);
 		
 		SettingsWindow.add(Confirm);
 		

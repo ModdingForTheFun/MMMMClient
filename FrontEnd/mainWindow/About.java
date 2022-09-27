@@ -27,21 +27,22 @@ public class About {
 			con = Con;
 			
 			Panel = new JPanel();
-			Panel.setSize(720,480);
+			Panel.setSize((int)(720 * Controller.scale),(int)(480 * Controller.scale));
 			Panel.setLocation(0, 0);
 			Panel.setLayout(null);
 			Panel.setOpaque(false);
 			
 			JPanel Window = new JPanel();
-			Window.setSize(new Dimension(655,370));
+			Window.setSize(new Dimension((int)(655 * Controller.scale),(int)(370 * Controller.scale)));
 			Window.setBackground(Color.BLACK);
-			Window.setLocation(25,25);
+			Window.setLocation((int)(25 * Controller.scale),(int)(25 * Controller.scale));
 			Window.setLayout(null);
 			
 			JTextArea AT = new JTextArea(); //About Text
-			AT.setSize(645,360);
+			AT.setFont(Controller.font);
+			AT.setSize((int)(645 * Controller.scale),(int)(360 * Controller.scale));
 			AT.setBorder(null);
-			AT.setLocation(5, 5);
+			AT.setLocation((int)(5 * Controller.scale), (int)(5 * Controller.scale));
 			AT.setEditable(false);
 			AT.setText("	About Manic Miners Mod Manager :\n"
 					+ "\n"
@@ -65,6 +66,8 @@ public class About {
 			Panel.add(Window);
 			
 			Panel.setVisible(true);
+			
+			System.out.println("Font : " + AT.getFont());
 			
 		}
 		

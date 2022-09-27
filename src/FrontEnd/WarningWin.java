@@ -30,7 +30,7 @@ private JButton yes;
 		
 		popUp = new JDialog();
 		popUp.setModal(true);
-		popUp.setSize(225,150);
+		popUp.setSize((int)(225 * Controller.scale),(int)(150 * Controller.scale));
 		popUp.setLocationRelativeTo(null);
 		popUp.setTitle("");
 		popUp.setIconImage(asLo.IconOff.getImage());
@@ -46,29 +46,32 @@ private JButton yes;
         });
 		
 		content = new JPanel();
-		content.setSize(900, 950);
+		content.setSize((int)(900 * Controller.scale), (int)(950 * Controller.scale));
 		content.setLocation(0, 0);
 		content.setLayout(null);
 		
 		ReallyText = new JTextField();
-		ReallyText.setSize(500,25);
-		ReallyText.setLocation(50,10);
+		ReallyText.setFont(Controller.font);
+		ReallyText.setSize((int)(500 * Controller.scale),(int)(25 * Controller.scale));
+		ReallyText.setLocation((int)(50 * Controller.scale),(int)(10 * Controller.scale));
 		ReallyText.setEditable(false);
 		ReallyText.setBackground(null);
 		ReallyText.setBorder(null);
 		ReallyText.setText("");
 		
 		mapNameText = new JTextField();
-		mapNameText.setSize(500,25);
-		mapNameText.setLocation(50,40);
+		mapNameText.setFont(Controller.font);
+		mapNameText.setSize((int)(500 * Controller.scale),(int)(25 * Controller.scale));
+		mapNameText.setLocation((int)(50 * Controller.scale),(int)(40 * Controller.scale));
 		mapNameText.setEditable(false);
 		mapNameText.setBackground(null);
 		mapNameText.setBorder(null);
 		mapNameText.setText("");
 		
 		yes = new JButton();
-		yes.setSize(125,25);
-		yes.setLocation(50,75);
+		yes.setFont(Controller.font);
+		yes.setSize((int)(125 * Controller.scale),(int)(25 * Controller.scale));
+		yes.setLocation((int)(50 * Controller.scale),(int)(75 * Controller.scale));
 		yes.setText("");
 		yes.addActionListener(new ActionListener() {
 
@@ -111,19 +114,19 @@ private JButton yes;
 		popUp.setTitle(warning[0]);
 		
 		ReallyText.setText(warning[1]);
-		ReallyText.setLocation(50 + warning[0].length(),10);
+		ReallyText.setLocation((int)(50 * Controller.scale) + warning[0].length(),(int)(10 * Controller.scale));
 		
 		mapNameText.setText(warning[2]);
-		mapNameText.setLocation(50 + warning[0].length(),40);
+		mapNameText.setLocation((int)(50 * Controller.scale) + warning[0].length(),(int)(40 * Controller.scale));
 		
 		yes.setText(warning[3]);
-		yes.setLocation(50 + extraLength / 4,75);
+		yes.setLocation((int)(50 * Controller.scale) + extraLength / 4,(int)(75 * Controller.scale));
 		
 		content.revalidate();
 		content.validate();
 		content.repaint();
 		
-		popUp.setSize(225 + extraLength2,150);
+		popUp.setSize((int)(225 * Controller.scale) + extraLength2,(int)(150 * Controller.scale));
 		
 		popUp.setVisible(true);
 	}
