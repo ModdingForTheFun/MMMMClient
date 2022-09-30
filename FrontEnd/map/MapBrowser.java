@@ -82,8 +82,22 @@ private JComboBox<String> authorBox;
 		
 		String[] columNames = {"Level Name" , "Author" , "Level Type" , "Length" , "Downloaded" , "Voting"};
 		
-		JTable levelTable = new JTable(data,columNames);
+		DefaultTableModel tabelModel = new DefaultTableModel(data,columNames) {
+			 @Override
+	            public Class getColumnClass(int column) {
+	                switch (column) {
+	                    case 5:
+	                        return Integer.class;
+	                    
+	                    default:
+	                        return String.class;
+	                }
+	            }
+		};
+		
+		JTable levelTable = new JTable(tabelModel);
 		levelTable.setFont(Controller.font);
+		levelTable.setRowHeight((int)(15 * Controller.scale));
 		levelTable.setDefaultEditor(Object.class, null);
 		levelTable.setAutoCreateRowSorter(true);
 		levelTable.getTableHeader().setReorderingAllowed(false);
@@ -445,7 +459,18 @@ private JComboBox<String> authorBox;
 		
 		String[] columNames = {"Level Name" , "Author" , "Level Type" , "Length" , "Downloaded" , "Voting"};
 		
-		TableModel updatedTable = new DefaultTableModel(finalData,columNames);
+		TableModel updatedTable = new DefaultTableModel(finalData,columNames){
+			 @Override
+	            public Class getColumnClass(int column) {
+	                switch (column) {
+	                    case 5:
+	                        return Integer.class;
+	                    
+	                    default:
+	                        return String.class;
+	                }
+	            }
+		};;
 		
 		levelTable.setModel(updatedTable);
 		

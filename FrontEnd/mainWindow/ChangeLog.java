@@ -38,6 +38,11 @@ public class ChangeLog {
 			CLT.setEditable(false);
 			CLT.setText("			---Change Log--- \n"
 					+ "\n"
+					+ " - Patch 0.8_1 - \n"
+					+ "\n"
+					+ " - Fixed Table scalling issue in Browse \n"
+					+ " - Fixed (sorta) vote sorting \n"
+					+ "\n"
 					+ " - Patch 0.8_0 - \n"
 					+ "\n"
 					+ " - Fixed Linux Support Problems \n"
