@@ -141,9 +141,7 @@ private LinkedList<String> packetsToSend = new LinkedList<String>();
 					
 				}else {
 					
-					//server = new Socket("mmmmserver.dynv6.net",8888);
-					
-					server = new Socket("31.16.161.109",8888);
+					server = new Socket("mftfserver.de",8888);
 					
 				}
 				
