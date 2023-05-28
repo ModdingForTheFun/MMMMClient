@@ -141,6 +141,7 @@ private LinkedList<String> packetsToSend = new LinkedList<String>();
 					
 				}else {
 					
+					// Now its a Domain
 					server = new Socket("mftfserver.de",8888);
 					
 				}
